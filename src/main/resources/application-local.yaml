@@ -1,0 +1,4 @@
+grpc:
+  hello-world-client-service:
+    host: "stg.hello-world-grpc-service.vpn.patinanetwork.org:50051"
+    tls: true
