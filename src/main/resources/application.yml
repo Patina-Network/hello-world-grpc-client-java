@@ -1,0 +1,54 @@
+server:
+  address: "${HTTP_HOST:0.0.0.0}"
+  port: "${HTTP_PORT:8080}"
+  shutdown: graceful
+  max-http-request-header-size: 16KB
+  tomcat:
+    connection-timeout: 10s
+    max-connections: 512
+    threads:
+      max: 256
+    accept-count: 128
+
+spring:
+  profiles:
+    include: "${ENVIRONMENT:}"
+  lifecycle:
+    timeout-per-shutdown-phase: 10s
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+      fail-on-trailing-tokens: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+grpc:
+  hello-world-client-service:
+    host: "${HELLO_WORLD_SERVICE_GRPC_HOST:hello-world-grpc-service:50051}"
+    tls: "${HELLO_WORLD_SERVICE_GRPC_TLS:false}"
+    timeout-ms: "${HELLO_WORLD_SERVICE_GRPC_TIMEOUT_MS:3000}"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: production | staging
+
+logging:
+  structured:
+    format:
+      console: ecs
+    json:
+      stacktrace:
+        root: first
+        max-length: 12288
+        include-common-frames: true
+        include-hashes: true
