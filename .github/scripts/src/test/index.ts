@@ -2,6 +2,7 @@ import { SonarScannerClient } from "@tahminator/pipeline";
 import { $ } from "bun";
 
 import { exclusions } from "../../../../exclusions";
+import { SONAR_ORGANIZATION, SONAR_PROJECT_KEY } from "../consts";
 
 async function main() {
   const { sonarToken } = parseCiEnv(process.env);
@@ -18,9 +19,9 @@ async function main() {
         "coverage.jacoco.xmlReportPaths": "target/site/jacoco/jacoco.xml",
         "coverage.exclusions": `${exclusions}`,
       },
-      organization: "patina-network",
+      organization: SONAR_ORGANIZATION,
       sourceCodeDir: "src/main/java",
-      projectKey: "Patina-Network_hello-world-grpc-client-java",
+      projectKey: SONAR_PROJECT_KEY,
     },
     run: {
       runTestsCmd: $`mvn -B -ntp verify`,
