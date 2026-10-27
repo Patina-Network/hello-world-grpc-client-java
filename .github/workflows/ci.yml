@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Pipeline
-        uses: tahminator/pipeline/actions/setup@a424f92d486342e1255fcdf377a7569eb230aabe # 1.0.97
+        uses: tahminator/pipeline/actions/setup@aa4f2ffcca89a9dcad96c1eac1e57b5a533f8c26 # 1.0.100
         with:
           SECRETS: ${{ toJSON(secrets) }}
           HEADSCALE_ADDRESS: ${{ secrets.HEADSCALE_ADDRESS }}
@@ -64,7 +64,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Pipeline
-        uses: tahminator/pipeline/actions/setup@a424f92d486342e1255fcdf377a7569eb230aabe # 1.0.97
+        uses: tahminator/pipeline/actions/setup@aa4f2ffcca89a9dcad96c1eac1e57b5a533f8c26 # 1.0.100
         with:
           SECRETS: ${{ toJSON(secrets) }}
           LINT_CI: true
@@ -100,7 +100,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Pipeline
-        uses: tahminator/pipeline/actions/setup@a424f92d486342e1255fcdf377a7569eb230aabe # 1.0.97
+        uses: tahminator/pipeline/actions/setup@aa4f2ffcca89a9dcad96c1eac1e57b5a533f8c26 # 1.0.100
         with:
           SECRETS: ${{ toJSON(secrets) }}
           LINT_CI: true
@@ -126,7 +126,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Pipeline
-        uses: tahminator/pipeline/actions/setup@a424f92d486342e1255fcdf377a7569eb230aabe # 1.0.97
+        uses: tahminator/pipeline/actions/setup@aa4f2ffcca89a9dcad96c1eac1e57b5a533f8c26 # 1.0.100
         with:
           SECRETS: ${{ toJSON(secrets) }}
           LINT_CI: true
